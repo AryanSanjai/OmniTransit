@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(135deg, #eef2ff, #fdf2f8, #ecfeff);
+  color: #1f2937;
+}
+
+* {
+  transition: all 0.2s ease;
+}
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+}
