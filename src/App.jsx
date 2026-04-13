@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import FAQ from "./pages/FAQ";
 import HowItWorks from "./pages/HowItWorks";
+import Network from "./pages/Network"; // Added this
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
@@ -27,11 +28,11 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/network" element={<Network />} /> {/* Added this */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
         {/* --- Secure Dashboard Access --- */}
-        {/* Everything under /app requires a login and uses the Layout sidebar */}
         <Route
           path="/app"
           element={
@@ -40,10 +41,7 @@ export default function App() {
             </ProtectedRoute>
           }
         >
-          {/* Path: /app */}
           <Route index element={<Dashboard />} />
-          
-          {/* Path: /app/vehicles, /app/wallet, etc. */}
           <Route path="vehicles" element={<Vehicles />} />
           <Route path="wallet" element={<Wallet />} />
           <Route path="transit" element={<Transit />} />
@@ -52,7 +50,6 @@ export default function App() {
         </Route>
 
         {/* --- Error Handling --- */}
-        {/* Redirects any invalid URL back to the home page */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
